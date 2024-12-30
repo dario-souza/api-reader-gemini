@@ -5,7 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "tsc -w"
+    "build": "tsc -w",
+    "start": "node dist/server.js watch"
   },
   "author": "Dario de souza",
   "license": "ISC",
