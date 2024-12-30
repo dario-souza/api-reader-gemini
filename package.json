@@ -1,0 +1,19 @@
+{
+  "name": "ia-reader",
+  "version": "1.0.0",
+  "description": "Uma api capaz de realizar leituras de gás e água atráves de fotos de um leitor",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w"
+  },
+  "author": "Dario de souza",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
