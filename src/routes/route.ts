@@ -1,14 +1,14 @@
 import { Router } from 'express'
-import { meterImage } from '../controllers/meter.upload.image.controller'
-import { meterConfirm } from '../controllers/meter.confirm.controller'
-import { meterList } from '../controllers/meter.list.controller'
+import { meterImageController } from '../controllers/meter.upload.image.controller'
+import { meterConfirmController } from '../controllers/meter.confirm.controller'
+import { meterListController } from '../controllers/meter.list.controller'
 
 
 const routes = Router()
 
-routes.post('/upload', meterImage)
-routes.patch('/confirm', meterConfirm)
-routes.get('/:customercode/list', meterList)
+routes.post('/upload', meterImageController)
+routes.patch('/confirm', meterConfirmController)
+routes.get('/:customercode/list', meterListController)
 
 
 export default routes

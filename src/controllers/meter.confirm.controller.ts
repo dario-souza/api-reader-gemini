@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
 
-export const meterConfirm = (req: Request, res: Response) => {
+export const meterConfirmController = async (req: Request, res: Response) => {
   res.json({ message: 'Meter confirm' })
 }
