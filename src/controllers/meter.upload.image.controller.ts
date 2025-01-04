@@ -9,7 +9,9 @@ export const meterImageController = async (req: Request<{}, {}, MeterType>, res:
     const response = await processImageMeterService(payload)
     res.status(200).json({ result: response })
   } catch (error: unknown) {
-    res.status(400).json({ message: error })
+    if (error instanceof Error) {
+      res.status(400).json({ message: error.message })
+    }
   }
 
 }
