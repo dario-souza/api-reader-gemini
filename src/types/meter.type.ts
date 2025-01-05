@@ -17,3 +17,9 @@ export type MeterListTypes = {
   has_confirmed: boolean,
   image_url: string
 }
+
+export type MeterResponseIA = {
+  image_url: string,
+  measure_value: number,
+  measure_uuid: string
+} 
