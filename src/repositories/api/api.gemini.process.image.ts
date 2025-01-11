@@ -23,11 +23,11 @@ export const apiGeminiProcessImage = async (payload: MeterType) => {
   const match = result.response.text().match(/\d+/)
   const meter = match ? +match[0] : 0
   const id = String(result.response?.candidates?.[0].avgLogprobs!)
-  const { uri } = await generateTemporarylink(image, apiKey)
+  const { uri, sha256Hash } = await generateTemporarylink(image, apiKey)
 
   const responseGeminiApi: MeterResponseIA = {
     image_url: uri,
-    measure_uuid: id,
+    measure_uuid: sha256Hash,
     measure_value: meter
   }
   return responseGeminiApi
