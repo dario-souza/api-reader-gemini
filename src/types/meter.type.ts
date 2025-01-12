@@ -1,5 +1,5 @@
 export type MeterType = {
-  image: string,
+  image: Base64URLString,
   customer_code: string,
   measure_datetime: Date,
   measure_type: 'WATER' | 'GAS'
