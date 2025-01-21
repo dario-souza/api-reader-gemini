@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { MeterResponseIA, MeterType } from "../../types/meter.type";
 import { generateTemporarylink } from '../utils/generate.temporary.link';
+import { saveMeasurements } from '../db/save.measurements';
 
 
 export const apiGeminiProcessImage = async (payload: MeterType) => {
@@ -22,7 +23,7 @@ export const apiGeminiProcessImage = async (payload: MeterType) => {
   ]);
   const match = result.response.text().match(/\d+/)
   const meter = match ? +match[0] : 0
-  const id = String(result.response?.candidates?.[0].avgLogprobs!)
+  // const id = String(result.response?.candidates?.[0].avgLogprobs!)
   const { uri, sha256Hash } = await generateTemporarylink(image, apiKey)
 
   const responseGeminiApi: MeterResponseIA = {
@@ -30,5 +31,6 @@ export const apiGeminiProcessImage = async (payload: MeterType) => {
     measure_uuid: sha256Hash,
     measure_value: meter
   }
+  await saveMeasurements(responseGeminiApi)
   return responseGeminiApi
 }
